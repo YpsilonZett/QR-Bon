@@ -1,3 +1,5 @@
+import logging
+
 import MySQLdb
 
 from _misc import Misc
@@ -23,6 +25,7 @@ class UserHandler(object):
                                passwd="Alay22xmp",
                                db="qrbon")
         c = conn.cursor()
+        logging.debug("<USER-HANDLER> Connected to database")
         return c, conn
 
     def new_user(self, email, username, password):
@@ -34,11 +37,13 @@ class UserHandler(object):
         :return: (bool) True, if success or False, if user exists
         """
 
+        logging.debug("<USER-HANDLER> Creating user {name}".format(name=username))
         status_code = self.__CURSOR.execute(
             "SELECT * FROM users WHERE username = ('{usr_name}')".
             format(usr_name=MySQLdb.escape_string(username))
         )
         if int(status_code) > 0:  # Means, that SQL has found an user with this name
+            logging.debug("\n'-User {name} already exists, canceling process")
             return False
 
         self.__CURSOR.execute(
@@ -48,6 +53,8 @@ class UserHandler(object):
                    email=MySQLdb.escape_string(email))
         )
         self.__CONNECTION.commit()
+        logging.info("<USER-HANDLER> Created new user\n\t|-USERNAME: {name}\n\t|-EMAIL: {email}\n\t'-PASSWORD: {pwd}".
+                     format(name=username, email=email, pwd=password))
         return True
 
     def check_login(self, username, password):
@@ -96,6 +103,7 @@ class UserHandler(object):
             .format(r=MySQLdb.escape_string(receipt), rid=MySQLdb.escape_string(rand_id))
         )
         self.__CONNECTION.commit()
+        logging.info("<USER-HANDLER> Receipt -> DB\n\t|-ID: {id}\n\t'-CONTENT: {receipt}")
         return rand_id
 
     def assign_rid_user(self, rid, username):
@@ -109,6 +117,8 @@ class UserHandler(object):
             format(uid=user_id, rid=rid)
         )
         self.__CONNECTION.commit()
+        logging.info("<USER-HANDLER> Receipt -> User\n\n|-USERNAME: {name}\n\n|-USER ID: {id}"
+                     "'-RECEIPT ID: {rid}".format(name=username, id=user_id, rid=rid))
         return True
 
     def receipt_overview(self, username):

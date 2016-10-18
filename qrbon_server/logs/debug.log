@@ -1,0 +1,26 @@
+[18/10/2016 06:36:47 PM] DEBUG: <USER-HANDLER> Connected to database
+[18/10/2016 06:36:47 PM] INFO: 
+
+----- Starting QR Bon -----
+
+
+[18/10/2016 06:36:47 PM] INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[18/10/2016 06:37:06 PM] INFO: 127.0.0.1 - - [18/Oct/2016 18:37:06] "GET / HTTP/1.1" 200 -
+[18/10/2016 06:37:07 PM] INFO: 127.0.0.1 - - [18/Oct/2016 18:37:07] "GET /static/res/favicon.ico HTTP/1.1" 200 -
+[18/10/2016 06:42:42 PM] DEBUG: <USER-HANDLER> Connected to database
+[18/10/2016 06:42:42 PM] INFO: 
+
+----- Starting QR Bon -----
+
+
+[18/10/2016 06:42:42 PM] INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[18/10/2016 06:42:52 PM] INFO: 127.0.0.1 - - [18/Oct/2016 18:42:52] "GET / HTTP/1.1" 200 -
+[18/10/2016 06:42:52 PM] INFO: 127.0.0.1 - - [18/Oct/2016 18:42:52] "GET /static/res/scroll2.svg HTTP/1.1" 200 -
+[18/10/2016 06:47:28 PM] DEBUG: <USER-HANDLER> Connected to database
+[18/10/2016 06:47:28 PM] INFO: 
+
+----- Starting QR Bon -----
+
+
+[18/10/2016 06:47:28 PM] INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[18/10/2016 06:47:41 PM] INFO: 127.0.0.1 - - [18/Oct/2016 18:47:41] "GET / HTTP/1.1" 200 -

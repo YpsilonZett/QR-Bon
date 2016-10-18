@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from PIL import ImageTk
 import Tkinter as tk
 
 import qrcode
+from PIL import ImageTk
 
 
 class QrMaker:
@@ -58,16 +58,6 @@ class QrMaker:
         qr.add_data(self.__URL)
         qr.make(fit=True)
         return qr.make_image()
-
-    def __save_qr(self, img):
-        """
-        Saves the given picture to a standard file (or overload existing)
-        :param img: (obj) qr image (created by '__generate_qr()'
-        """
-
-        out_file = open("qr_img.png", "wb")
-        img.save(out_file)
-        # TODO: keep image in RAM instead of saving it
 
     def __qr_screen(self):
         """Creates a canvas object displayed on the screen. It contains the qr image."""

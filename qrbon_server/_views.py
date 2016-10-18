@@ -47,7 +47,7 @@ def login_page():
             flask.session['logged_in'] = True
             flask.session['username'] = usr_name
             clean_cache()
-            logging.debug(flask.request.remote_addr + ' logged in successfully')
+            logging.debug(flask.request.remote_addr + ' logged in successfully as ' + usr_name)
             if flask.request.args.get('goto', '') == '':
                 return flask.redirect(flask.url_for('dashboard_page'))
 
@@ -67,7 +67,8 @@ def dashboard_page():
     """Profile page"""
 
     receipts = user_handler.receipt_overview(flask.session['username'])
-    logging.debug('receipts for ' + flask.request.remote_addr + ' loaded successfully: ' + str(receipts))
+    logging.debug("<DASHBOARD> Receipts for {ip} loaded successful ({num} receipts)".
+                  format(ip=flask.request.remote_addr, num=len(receipts)))
     return flask.render_template('dashboard.html', receipts=receipts)
 
 
@@ -86,8 +87,7 @@ def receipt_request_page():
     receipt = str(flask.request.get_json(force=True))
     logging.debug('got receipt from ' + flask.request.remote_addr + ': ' + str(receipt))
     receipt_id = user_handler.receipt_to_db(receipt)
-    logging.debug('put receipt ' + receipt + ' with id ' + receipt_id + ' in database')
-    url = 'http://www.qr-bon.com/rid=' + receipt_id  # www.qr-bon.com
+    url = 'http://localhost:5000/rid=' + receipt_id  # www.qr-bon.com
     logging.debug('created url for ' + flask.request.remote_addr + ' successfully: ' + url + ', sending back...')
     return flask.jsonify(url)
 
