@@ -6,3 +6,14 @@ weitergeführte Projektes wird bald einer Supermarktkette vorgestellt, zum Jugen
 *Momentan ist es jedoch noch in der Entwicklungsphase.*<br>
 *Website: www.qr-bon.com*<br>
 *Dokumentation und genauere Beschreibung erscheinen bald*
+
+
+# Roadmap
+
+- Instance methods with 'self'
+- Userhandler instance variable
+- better log format
+- flask error handling+
+- frontend
+- receipt id = hash(timestamp + random)
+- user db <- receipt db foreignkey assoziation
