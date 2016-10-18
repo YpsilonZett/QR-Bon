@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--Minimal user dashboard-->
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <title>Übersicht - QR Bon</title>
+
+        <style>
+            #receipts{
+                margin: 5% 20% 5% 1%;
+                padding: 5%;
+                background-color: navajowhite;
+            }
+
+            #receipt {
+                margin: 5% 5% 5% 2%;
+                background-color: white;
+                font-size: 150%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Hallo {{ session['username'] }}!</h1>
+        <h2>Hier sind alle ihre Bons:</h2><br><br>
+
+        <div id="receipts">
+            {% for receipt in receipts %}
+                <div id="receipt">
+
+                    {{ receipt }}
+                    
+                </div>
+            {% endfor %}
+        </div>
+
+        <a href="{{ url_for('logout_page') }}">Abmelden</a>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--Minimal user register form-->
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <title>Registrieren - QR Bon</title>
+        <style type="text/css">
+            #error{
+                background-color: #ff0117;
+                color: #ffffff;
+            }
+        </style>
+    </head>
+
+    <body>
+         <div id="error"> <!--Is only shown, if there's an error -->
+            {{ error }}
+        </div>
+
+        <h1>Neues Konto erstellen</h1><br>
+
+        <form action="" method="post">
+            <label>E-Mail Adresse:</label>
+            <input type="text" name="email" value="{{ request.form.email }}"><br>
+            <label>Benutzername:</label>
+            <input type="text" name="username" value="{{ request.form.username }}"><br>
+            <label>Passwort:</label>
+            <input type="password" name="password" value="{{ request.form.password }}"><br>
+            <input type="submit" value="Konto erstellen">
+        </form>
+    </body>
+</html>

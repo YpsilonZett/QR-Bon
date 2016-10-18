@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--Minimal user login form-->
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <title>Anmelden - QR Bon</title>
+        <style type="text/css">
+            #error{
+                background-color: #ff0117;
+                color: #ffffff;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="error"> <!--Is only shown, if there's an error -->
+            {{ error }}
+        </div>
+
+        <h1>Anmelden</h1><br>
+
+        <form action="" method="post">
+            <label>Benutzername:</label>
+            <input type="text" name="username" value="{{ request.form.username }}"><br>
+            <label>Passwort:</label>
+            <input type="password" name="password" value="{{ request.form.password }}"><br>
+            <input type="submit" value="Anmelden">
+        </form><br><br>
+
+        <h3>Mit Google/Facebook Konto anmelden</h3>
+        <p>Hier müsste eine Google/Facebook API sein</p><br><br><br>
+        <h3>Oder ein <a href="{{ url_for('register_page') }}">neues Konto</a> erstellen</h3>
+    </body>
+</html>
