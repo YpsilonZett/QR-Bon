@@ -1,5 +1,7 @@
 import MySQLdb
 
+from _misc import Misc
+
 
 class UserHandler(object):
     """
