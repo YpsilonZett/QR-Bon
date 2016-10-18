@@ -1,19 +1,27 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import logging
 from functools import wraps
-from string import ascii_letters, digits
-from random import SystemRandom
 from gc import collect as clean_cache
 from os import urandom
-import logging
+from random import SystemRandom
+from string import ascii_letters, digits
+from time import time
 
-import flask
 import MySQLdb
-
+import flask
 
 app = flask.Flask(__name__)
 app.secret_key = urandom(32)  # 32 byte random string
 logging.basicConfig(level=logging.DEBUG)
+
+
+# TODO: Instance methods with 'self'
+# TODO: Userhandler instance variable
+# TODO: better logging
+# TODO: exception handling
+# TODO: Frontend
+# TODO: foreignkey assoziation
 
 
 class Misc(object):
@@ -42,6 +50,15 @@ class Misc(object):
     # def log_request():
     #     logging.debug(flask.request.method + ' request to ' + flask.request.url + ' from ' +
     #                   flask.request.remote_addr + ', content: ' + str(flask.request.form))
+
+    @staticmethod
+    def generate_rid():
+        """
+        :return: (str) random receipt id (hashed random string and timestamp)
+        """
+
+        return ''.join(SystemRandom().choice(ascii_letters + digits)
+                       for _ in range(10)) + str(int(time()))
 
 
 class UserHandler(object):
@@ -131,7 +148,7 @@ class UserHandler(object):
         :return: (str) 16-digit id
         """
 
-        rand_id = ''.join(SystemRandom().choice(ascii_letters + digits) for _ in range(16))
+        rand_id = Misc.generate_rid()
         self.__CURSOR.execute(
             "INSERT INTO receipts (receipt, receipt_id) VALUES ('{r}', '{rid}')"
             .format(r=MySQLdb.escape_string(receipt), rid=MySQLdb.escape_string(rand_id))
@@ -166,13 +183,6 @@ class UserHandler(object):
         return self.__CURSOR.fetchall()
 
 
-# TODO: Instance methods with 'self'
-# TODO: Userhandler instance variable
-# TODO: better logging
-# TODO: exception handling
-# TODO: Frontend
-# TODO: receipt id = timestamp + random (hashed)
-# TODO: foreignkey assoziation
 class Views(object):
     """
     Class for page functions (rendering + logic).
@@ -263,7 +273,7 @@ class Views(object):
         logging.debug('got receipt from ' + flask.request.remote_addr + ': '+ str(receipt))
         receipt_id = UserHandler().receipt_to_db(receipt)
         logging.debug('put receipt ' + receipt + ' with id ' + receipt_id + ' in database')
-        url = 'http://localhost:5000/rid=' + receipt_id
+        url = 'http://localhost:5000/rid=' + receipt_id  # www.qr-bon.com
         logging.debug('created url for ' + flask.request.remote_addr + ' successfully: ' + url + ', sending back...')
         return flask.jsonify(url)
 
@@ -276,7 +286,6 @@ class Views(object):
         :param rid: (str) receipt id (user is assigned to receipt with this id)
         """
 
-        print 'temp_url_page'
         UserHandler().assign_rid_user(rid, flask.session['username'])
         return flask.redirect(flask.url_for('dashboard_page'))
 
