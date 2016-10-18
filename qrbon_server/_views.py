@@ -87,7 +87,7 @@ def receipt_request_page():
     logging.debug('got receipt from ' + flask.request.remote_addr + ': ' + str(receipt))
     receipt_id = user_handler.receipt_to_db(receipt)
     logging.debug('put receipt ' + receipt + ' with id ' + receipt_id + ' in database')
-    url = 'http://localhost:5000/rid=' + receipt_id  # www.qr-bon.com
+    url = 'http://www.qr-bon.com/rid=' + receipt_id  # www.qr-bon.com
     logging.debug('created url for ' + flask.request.remote_addr + ' successfully: ' + url + ', sending back...')
     return flask.jsonify(url)
 

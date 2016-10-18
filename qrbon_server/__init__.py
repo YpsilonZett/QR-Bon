@@ -12,7 +12,7 @@ import _views
 # TODO: Frontend
 # TODO: foreignkey assoziation
 
-logging.basicConfig(level=logging.DEBUG)
+#logging.basicConfig(level=logging.DEBUG)
 
 # initializing flask
 app = flask.Flask(__name__)
@@ -27,11 +27,11 @@ app.add_url_rule('/logout', view_func=_views.logout_page)
 app.add_url_rule('/receipt', view_func=_views.receipt_request_page, methods=["POST"])
 app.add_url_rule('/rid=<string:rid>', view_func=_views.temp_url_page)
 
-# @staticmethod
-# @app.before_request
-# def log_request():
-#     logging.debug(flask.request.method + ' request to ' + flask.request.url + ' from ' +
-#                   flask.request.remote_addr + ', content: ' + str(flask.request.form))
+
+@app.before_request
+def log_request():
+    logging.debug(flask.request.method + ' request to ' + flask.request.url + ' from ' +
+                  flask.request.remote_addr + ', content: ' + str(flask.request.form))
 
 
 if __name__ == '__main__':
