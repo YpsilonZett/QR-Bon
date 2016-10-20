@@ -24,3 +24,27 @@
 
 [18/10/2016 06:47:28 PM] INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 [18/10/2016 06:47:41 PM] INFO: 127.0.0.1 - - [18/Oct/2016 18:47:41] "GET / HTTP/1.1" 200 -
+[20/10/2016 01:49:26 PM] DEBUG: <USER-HANDLER> Connected to database
+[20/10/2016 01:49:26 PM] INFO: 
+
+----- Starting QR Bon -----
+
+
+[20/10/2016 01:49:26 PM] INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[20/10/2016 01:50:00 PM] INFO: 127.0.0.1 - - [20/Oct/2016 13:50:00] "GET / HTTP/1.1" 200 -
+[20/10/2016 01:50:07 PM] INFO: 127.0.0.1 - - [20/Oct/2016 13:50:07] "GET /favicon.ico HTTP/1.1" 404 -
+[20/10/2016 01:50:07 PM] INFO: 127.0.0.1 - - [20/Oct/2016 13:50:07] "GET /favicon.ico HTTP/1.1" 404 -
+[20/10/2016 01:50:11 PM] INFO: 127.0.0.1 - - [20/Oct/2016 13:50:11] "GET /login HTTP/1.1" 200 -
+[20/10/2016 01:50:12 PM] INFO: 127.0.0.1 - - [20/Oct/2016 13:50:12] "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 -
+[20/10/2016 01:50:12 PM] INFO: 127.0.0.1 - - [20/Oct/2016 13:50:12] "GET /static/bootstrap/css/bootstrap-theme.min.css HTTP/1.1" 200 -
+[20/10/2016 01:50:12 PM] INFO: 127.0.0.1 - - [20/Oct/2016 13:50:12] "GET /static/css/bootstrap/bootstrap.min.js HTTP/1.1" 404 -
+[20/10/2016 01:50:12 PM] INFO: 127.0.0.1 - - [20/Oct/2016 13:50:12] "GET /static/res/favicon.ico HTTP/1.1" 404 -
+[20/10/2016 01:50:12 PM] INFO: 127.0.0.1 - - [20/Oct/2016 13:50:12] "GET /static/css/login.css HTTP/1.1" 200 -
+[20/10/2016 01:50:12 PM] INFO: 127.0.0.1 - - [20/Oct/2016 13:50:12] "GET /static/res/favicon.ico HTTP/1.1" 404 -
+[20/10/2016 01:57:26 PM] DEBUG: <USER-HANDLER> Connected to database
+[20/10/2016 01:57:26 PM] INFO: 
+
+----- Starting QR Bon -----
+
+
+[20/10/2016 01:57:26 PM] INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)

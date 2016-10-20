@@ -1,32 +1,68 @@
 <!DOCTYPE html>
-<!--Minimal user register form-->
-<html lang="de">
+<html>
     <head>
+        <!-- Meta tags -->
         <meta charset="utf-8">
-        <title>Registrieren - QR Bon</title>
-        <style type="text/css">
-            #error{
-                background-color: #ff0117;
-                color: #ffffff;
-            }
-        </style>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSS -->
+        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="../static/css/register.css">
+        <!-- JS -->
+        <script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js"></script>
     </head>
 
     <body>
-         <div id="error"> <!--Is only shown, if there's an error -->
-            {{ error }}
+        <div class="container">
+            <div class="omb_login">
+                <div class="row omb_row-sm-offset-3">
+                    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                        <h1>Neues Konto erstellen</h1>
+
+                        <form class="omb_loginForm" action="" autocomplete="off" method="post">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input type="email" class="form-control" name="email" maxlength="70" id="login_id"
+                                       placeholder="E-Mail Adresse">
+                            </div>
+
+                            <span class="help-block"></span>
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input  type="text" class="form-control" name="username" maxlength="30" id="pin_id"
+                                        placeholder="Benutzername">
+                            </div>
+
+                            <span class="help-block"></span>
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" class="form-control" name="password" maxlength="20"
+                                       id="verify_pin_id"placeholder="Passwort">
+                            </div>
+
+                            <span class="help-block"></span>
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" class="form-control" name="password" maxlength="20"
+                                       id="verify_pin_id"placeholder="Passwort wiederholen">
+                            </div>
+
+                            <span class="help-block"></span>
+
+                            <p><button class="btn btn-lg btn-primary btn-block" type="submit">
+                                Registrieren
+                            </button></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <h1>Neues Konto erstellen</h1><br>
-
-        <form action="" method="post">
-            <label>E-Mail Adresse:</label>
-            <input type="text" name="email" value="{{ request.form.email }}"><br>
-            <label>Benutzername:</label>
-            <input type="text" name="username" value="{{ request.form.username }}"><br>
-            <label>Passwort:</label>
-            <input type="password" name="password" value="{{ request.form.password }}"><br>
-            <input type="submit" value="Konto erstellen">
-        </form>
     </body>
 </html>
