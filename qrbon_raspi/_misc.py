@@ -5,6 +5,7 @@ import Tkinter as tk
 import requests
 
 from _receipt_creator import create_test_receipt
+from _qr_maker import QrMaker
 
 
 class Misc:
@@ -48,7 +49,7 @@ class Misc:
         self.__WN.destroy()
         url = self.__send_and_receive()
         print url
-        # QrMaker(url)
+        #QrMaker(url)
 
 
 if __name__ == '__main__':
