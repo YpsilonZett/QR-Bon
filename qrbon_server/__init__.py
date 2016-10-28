@@ -1,18 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from os import urandom
+import logging
 
-from ._views import *
+logging.info("\n\n----- Starting QR Bon -----\n\n")
+
 
 # TODO: exception handling
 # TODO: Frontend
 # TODO: foreignkey
-# TODO: receipt tests
+
+
+from os import urandom
+from ._views import *
 
 
 # initializing flask
 app = flask.Flask(__name__)
 app.secret_key = urandom(32)  # 32 byte random string
+app.jinja_env.autoescape = False
+
 
 # add pages (bind view functions to urls)
 app.add_url_rule('/', view_func=home_page)

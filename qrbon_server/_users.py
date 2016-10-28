@@ -1,4 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import logging
+from ast import literal_eval
 
 import MySQLdb
 
@@ -22,10 +25,10 @@ class UserHandler(object):
 
         conn = MySQLdb.connect(host="localhost",
                                user="root",
-                               passwd="Alay22xmp",
+                               passwd="Yltax72;a-999",
                                db="qrbon")
         c = conn.cursor()
-        logging.debug("<USER-HANDLER> Connected to database")
+        logging.info("<USER-HANDLER> Connected to database")
         return c, conn
 
     def new_user(self, email, username, password):
@@ -43,7 +46,7 @@ class UserHandler(object):
             format(usr_name=MySQLdb.escape_string(username))
         )
         if int(status_code) > 0:  # Means, that SQL has found an user with this name
-            logging.debug("\n'-User {name} already exists, canceling process")
+            logging.debug("\n'-User {name} already exists, canceling process".format(name=username))
             return False
 
         self.__CURSOR.execute(
@@ -103,21 +106,30 @@ class UserHandler(object):
             .format(r=MySQLdb.escape_string(receipt), rid=MySQLdb.escape_string(rand_id))
         )
         self.__CONNECTION.commit()
-        logging.info("<USER-HANDLER> Receipt -> DB\n\t|-ID: {id}\n\t'-CONTENT: {receipt}")
+        logging.info("<USER-HANDLER> Receipt -> DB\n\t|-ID: {id}\n\t'-CONTENT: {receipt}".
+                     format(id=rand_id, receipt=receipt))
         return rand_id
 
     def assign_rid_user(self, rid, username):
         """
         Assigns a receipt id (from an existing receipt in the database) to an owner
-        :return: (bool) True, if anything ok, else raise error
+        :return: (bool) True, if anything ok, False, if receipt already assigned
         """
+
+        self.__CURSOR.execute(
+            "SELECT user_id FROM receipts WHERE receipt_id = ('{rid}')".
+                format(rid=MySQLdb.escape_string(rid))
+        )
+        if self.__CURSOR.fetchone() != (None,):
+            return False
+
         user_id = self.__get_user_id(username)
         self.__CURSOR.execute(
             "UPDATE receipts SET user_id={uid} WHERE receipt_id='{rid}'".
             format(uid=user_id, rid=rid)
         )
         self.__CONNECTION.commit()
-        logging.info("<USER-HANDLER> Receipt -> User\n\n|-USERNAME: {name}\n\n|-USER ID: {id}"
+        logging.info("<USER-HANDLER> Receipt -> User\n\t|-USERNAME: {name}\n\t|-USER ID: {id}\n\t"
                      "'-RECEIPT ID: {rid}".format(name=username, id=user_id, rid=rid))
         return True
 
@@ -129,7 +141,13 @@ class UserHandler(object):
         """
 
         self.__CURSOR.execute(
-            "SELECT receipt FROM receipts WHERE user_id = ({uid})".
+            "SELECT * FROM receipts WHERE user_id = ({uid}) ORDER BY receipt_date;".
             format(uid=self.__get_user_id(username))
         )
-        return self.__CURSOR.fetchall()
+        receipts = self.__CURSOR.fetchall()
+        if receipts == ():
+            return []
+
+        receipts = [literal_eval(receipt[1]) for receipt in receipts]
+        receipts.reverse()
+        return receipts

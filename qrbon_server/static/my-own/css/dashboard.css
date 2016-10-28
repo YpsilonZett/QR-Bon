@@ -1,0 +1,53 @@
+@font-face {
+    font-family: "Fake Receipt";
+    src: url('../fonts/receipt-font.ttf');
+}
+
+body {
+    background-color: #bced91;
+}
+
+#header {
+    margin-top: 20px;
+}
+
+#heading {
+    font-size: 400%;
+}
+
+#sub-heading {
+    font-size: 300%;
+    color: #808080;
+}
+
+#inner-container {
+    background-color: #ffffff;
+    border: 5px solid #e8ffce;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#receipt-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.receipt {
+    padding: 3%;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    background: url("../res/receipt-paper.jpg") round;
+    font-family: "Fake Receipt";
+    font-size: x-large;
+    text-align: center;
+}
+
+.receipt-seperator {
+    height: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.receipt-table {
+    width: 100%;
+}

@@ -22,7 +22,7 @@ class QrMaker:
         :param qr_size: Size of qr code
         :param pattern_size: Size of one qr pixel
         :param border_size: Thickness of border
-        :param error_correction_level: Intensity of error correction
+        :param error_correction_level: Intensity of alert correction
         """
 
         self.__URL = url

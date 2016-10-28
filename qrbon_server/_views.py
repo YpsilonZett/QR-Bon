@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*- b
 import logging
 from gc import collect as clean_cache
 
@@ -22,6 +22,12 @@ def register_page():
         email = flask.request.form['email']
         username = flask.request.form['username']
         password = flask.request.form['password']  # TODO: Password hash, if necessary
+        password2 = flask.request.form['password2']
+
+        if password != password2:
+            return flask.render_template('register.html',
+                                         alert=Misc.alert_html(u'Die Angegebenen Passwörter stimmen nicht überein',
+                                                               'danger'))
 
         if user_handler.new_user(email, username, password):
             flask.session['logged_in'] = True
@@ -30,10 +36,11 @@ def register_page():
             return flask.redirect(flask.url_for('dashboard_page'))
 
         logging.debug(flask.request.remote_addr + ' tried to register unsuccessfully')
-        return flask.render_template('register.html',
-                                     error='Tut uns leid, aber der Name existiert beriets')
+        return flask.render_template('register.html', alert=Misc.alert_html(
+            'Der Benutzername ist bereits vergeben', 'danger'
+        ))
 
-    return flask.render_template('register.html')
+    return flask.render_template('register.html', alert='')
 
 
 def login_page():
@@ -55,11 +62,11 @@ def login_page():
 
         clean_cache()
         logging.debug(flask.request.remote_addr + ' tried to log in unsuccessfully')
-        return flask.render_template('login.html',
-                                     error='Ungültige Kombination aus Benutzername und Passwort'.decode
-                                     ('utf-8'))  # TODO: Encoding
+        return flask.render_template('login.html', alert=Misc.alert_html(
+            u'Ungültige Kombination aus Benutzername und Passwort', 'danger'
+        ))
 
-    return flask.render_template('login.html')
+    return flask.render_template('login.html', alert='')
 
 
 @Misc.login_required
@@ -84,10 +91,16 @@ def logout_page():
 
 def receipt_request_page():
     """Gets POST requests from RasPis and gives the receipts to the receipt handler"""
-    receipt = str(flask.request.get_json(force=True))
-    logging.debug('got receipt from ' + flask.request.remote_addr + ': ' + str(receipt))
-    receipt_id = user_handler.receipt_to_db(receipt)
-    url = 'http://localhost:5000/rid=' + receipt_id  # www.qr-bon.com
+    receipt = flask.request.get_json(force=True)
+    logging.info('got receipt from ' + flask.request.remote_addr)
+    if not Misc.test_receipt(receipt):
+        logging.warn("<MISC> Bad receipt! {ip} send bad receipt, cancelling request! Bad receipt: {receipt}".format(
+            ip=flask.request.remote_addr, receipt=receipt))
+        flask.abort(400)
+        return
+
+    receipt_id = user_handler.receipt_to_db(str(receipt))
+    url = 'http://www.qr-bon.com/rid=' + receipt_id  #
     logging.debug('created url for ' + flask.request.remote_addr + ' successfully: ' + url + ', sending back...')
     return flask.jsonify(url)
 
@@ -99,5 +112,10 @@ def temp_url_page(rid):
     :param rid: (str) receipt id (user is assigned to receipt with this id)
     """
 
-    user_handler.assign_rid_user(rid, flask.session['username'])
+    if not user_handler.assign_rid_user(rid, flask.session['username']):
+        logging.warn('Trying to steal receipt! {ip} has visited page: {url}! Cancelling request!'.
+                     format(ip=flask.request.remote_addr, url=flask.request.url))
+        flask.abort(400)
+        return
+
     return flask.redirect(flask.url_for('dashboard_page'))

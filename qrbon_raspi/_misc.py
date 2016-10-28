@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import Tkinter as tk
+
 import requests
 
-from ._receipt_creator import create_test_receipt
-from ._qr_maker import QrMaker
+from _receipt_creator import create_test_receipt
 
 
 class Misc:
@@ -13,7 +13,7 @@ class Misc:
     Puts graphics and logic together. Please create an instance to run it.
     """
 
-    def __init__(self, server_url='http://www.qr-bon.com/receipt'):
+    def __init__(self, server_url='http://localhost:5000/receipt'):
         """Runs class"""
         self.__SERVER_URL = server_url
         self.__WN = tk.Tk()
@@ -30,7 +30,7 @@ class Misc:
         tk.Button(master=self.__WN, text='  JA!  ', font='Verdana 46 bold', fg='black',
             bg='orange', command=self.__next).pack()
 
-        self.__WN.mainloop()
+        self.__WN.mainloop()  # TODO: Two buttons
 
     def __send_and_receive(self):
         """
@@ -39,13 +39,17 @@ class Misc:
         :return: (str) url to receipt page
         """
 
-        print 'Lade...'
         receipt = create_test_receipt()
         res = requests.post(self.__SERVER_URL, json=receipt)  # Returns response object
-        return res.text
+        return str(res.text).replace('"', '')
 
     def __next(self):
         """Executes the programm and prepare for the next customer"""
         self.__WN.destroy()
         url = self.__send_and_receive()
-        QrMaker(url)
+        print url
+        # QrMaker(url)
+
+
+if __name__ == '__main__':
+    Misc()
