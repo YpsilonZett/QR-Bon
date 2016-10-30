@@ -100,7 +100,7 @@ def receipt_request_page():
         return
 
     receipt_id = user_handler.receipt_to_db(str(receipt))
-    url = 'http://www.qr-bon.com/rid=' + receipt_id  #
+    url = 'http://localhost:5000/rid=' + receipt_id  # www.qr-bon.com
     logging.debug('created url for ' + flask.request.remote_addr + ' successfully: ' + url + ', sending back...')
     return flask.jsonify(url)
 

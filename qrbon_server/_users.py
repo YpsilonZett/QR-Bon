@@ -25,7 +25,7 @@ class UserHandler(object):
 
         conn = MySQLdb.connect(host="localhost",
                                user="root",
-                               passwd="Yltax72;a-999",
+                               passwd="Alay22xmp",
                                db="qrbon")
         c = conn.cursor()
         logging.info("<USER-HANDLER> Connected to database")

@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/qrbon_server/__init__.py" line="0" mnemonic="3" />
     <bookmark url="file://$PROJECT_DIR$/qrbon_server/_views.py" line="102" mnemonic="1" />
     <bookmark url="file://$PROJECT_DIR$/qrbon_server/_users.py" line="27" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/server.wsgi" line="3" mnemonic="3" />
+    <bookmark url="file://$PROJECT_DIR$/server.wsgi" line="8" mnemonic="4" />
+    <bookmark url="file://$PROJECT_DIR$/qrbon_raspi/_misc.py" line="53" mnemonic="5" />
+    <bookmark url="file://$PROJECT_DIR$/qrbon_raspi/_misc.py" line="17" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ed12611-ea27-47e4-a135-e73aae3081a1" name="Default" comment="Added first version of fancy frontend">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/qrbon_raspi/_checkout_api.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrbon_raspi/_misc.py" afterPath="$PROJECT_DIR$/qrbon_raspi/_misc.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrbon_raspi/_qr_maker.py" afterPath="$PROJECT_DIR$/qrbon_raspi/_qr_maker.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrbon_server/_users.py" afterPath="$PROJECT_DIR$/qrbon_server/_users.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrbon_server/_views.py" afterPath="$PROJECT_DIR$/qrbon_server/_views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrbon_server/static/my-own/css/dashboard.css" afterPath="$PROJECT_DIR$/qrbon_server/static/my-own/css/dashboard.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrbon_server/templates/base.html" afterPath="$PROJECT_DIR$/qrbon_server/templates/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrbon_server/templates/dashboard.html" afterPath="$PROJECT_DIR$/qrbon_server/templates/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrbon_server/templates/error.html" afterPath="$PROJECT_DIR$/qrbon_server/templates/error.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrbon_server/templates/index.html" afterPath="$PROJECT_DIR$/qrbon_server/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrbon_server/templates/login.html" afterPath="$PROJECT_DIR$/qrbon_server/templates/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrbon_server/templates/register.html" afterPath="$PROJECT_DIR$/qrbon_server/templates/register.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.wsgi" afterPath="$PROJECT_DIR$/server.wsgi" />
     </list>
     <ignored path="QR-Bon.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,9 +34,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/qr-bon$_misc.coverage" NAME="_misc Coverage Results" MODIFIED="1477658092215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qrbon_raspi" />
+    <SUITE FILE_PATH="coverage/qr-bon$_misc.coverage" NAME="_misc Coverage Results" MODIFIED="1477823635571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qrbon_raspi" />
     <SUITE FILE_PATH="coverage/QR-Bon$server_wsgi.coverage" NAME="server.wsgi Coverage Results" MODIFIED="1476809248328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/qr-bon$server_wsgi.coverage" NAME="server.wsgi Coverage Results" MODIFIED="1477658231790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/qr-bon$server_wsgi.coverage" NAME="server.wsgi Coverage Results" MODIFIED="1477826977412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/qr-bon$_users.coverage" NAME="_users Coverage Results" MODIFIED="1477594724656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qrbon_server" />
     <SUITE FILE_PATH="coverage/qr-bon$_receipt_creator.coverage" NAME="_receipt_creator Coverage Results" MODIFIED="1477653853550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qrbon_raspi" />
     <SUITE FILE_PATH="coverage/QR-Bon$QR_Bon.coverage" NAME="QR-Bon Coverage Results" MODIFIED="1476796291239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
@@ -49,13 +58,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_misc.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/qrbon_raspi/_misc.py">
+      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/qrbon_server/templates/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+            <state relative-caret-position="1126">
+              <caret line="155" column="34" selection-start-line="155" selection-start-column="34" selection-end-line="155" selection-end-column="34" />
               <folding>
-                <element signature="e#46#66#0" expanded="true" />
+                <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#table#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#table#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#table#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#5;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#table#4;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#p#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <marker date="1477825295021" expanded="false" signature="1614:1707" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboard.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/qrbon_server/static/my-own/css/dashboard.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+              <folding>
+                <element signature="e#11#90#0" expanded="false" />
+                <element signature="e#97#131#0" expanded="false" />
+                <element signature="e#150#262#0" expanded="false" />
+                <element signature="e#283#333#0" expanded="false" />
+                <element signature="e#343#368#0" expanded="false" />
+                <element signature="e#379#404#0" expanded="false" />
+                <element signature="e#419#464#0" expanded="false" />
+                <element signature="e#780#800#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -83,7 +123,6 @@
         <option value="$PROJECT_DIR$/qrbon_server/static/css/styles.css" />
         <option value="$PROJECT_DIR$/qrbon_server/views.py" />
         <option value="$PROJECT_DIR$/qrbon_server/users.py" />
-        <option value="$PROJECT_DIR$/qrbon_raspi/_qr_maker.py" />
         <option value="$PROJECT_DIR$/qrbon_server/server.wsgi.py" />
         <option value="$PROJECT_DIR$/qrbon_server/templates/index.html" />
         <option value="$PROJECT_DIR$/qrbon_server/static/js/login.css" />
@@ -93,20 +132,22 @@
         <option value="$PROJECT_DIR$/qrbon_server/templates/error.html" />
         <option value="$PROJECT_DIR$/qrbon_server/static/css/dashboard.css" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/qrbon_server/templates/login.html" />
-        <option value="$PROJECT_DIR$/qrbon_server/templates/register.html" />
-        <option value="$PROJECT_DIR$/qrbon_server/templates/base.html" />
         <option value="$PROJECT_DIR$/w.py" />
         <option value="$PROJECT_DIR$/qrbon_server/_misc.py" />
         <option value="$PROJECT_DIR$/qrbon_server/__init__.py" />
-        <option value="$PROJECT_DIR$/qrbon_server/static/my-own/css/dashboard.css" />
-        <option value="$PROJECT_DIR$/qrbon_server/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/qrbon_raspi/_receipt_creator.py" />
-        <option value="$PROJECT_DIR$/qrbon_server/_views.py" />
-        <option value="$PROJECT_DIR$/qrbon_server/_users.py" />
-        <option value="$PROJECT_DIR$/server.wsgi" />
         <option value="$PROJECT_DIR$/qrbon_server/logs/debug.log" />
+        <option value="$PROJECT_DIR$/qrbon_server/_users.py" />
+        <option value="$PROJECT_DIR$/qrbon_server/_views.py" />
+        <option value="$PROJECT_DIR$/qrbon_raspi/_checkout_api.py" />
+        <option value="$PROJECT_DIR$/qrbon_raspi/_qr_maker.py" />
         <option value="$PROJECT_DIR$/qrbon_raspi/_misc.py" />
+        <option value="$PROJECT_DIR$/qrbon_server/templates/base.html" />
+        <option value="$PROJECT_DIR$/qrbon_server/templates/login.html" />
+        <option value="$PROJECT_DIR$/qrbon_server/templates/register.html" />
+        <option value="$PROJECT_DIR$/server.wsgi" />
+        <option value="$PROJECT_DIR$/qrbon_server/templates/dashboard.html" />
+        <option value="$PROJECT_DIR$/qrbon_server/static/my-own/css/dashboard.css" />
       </list>
     </option>
   </component>
@@ -147,7 +188,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -194,26 +234,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="logs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="qr-bon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="qr-bon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="qrbon_raspi" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -226,16 +253,16 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\YpsilonZett\Programming\Python\projects\qr-bon\qrbon_server\static\my-own\fonts" />
-      <recent name="C:\Users\YpsilonZett\Programming\Python\Projects\QR-Bon\qr-bon\qrbon_server\static" />
-      <recent name="C:\Users\YpsilonZett\Programming\Python\Projects\QR-Bon\qrbon_server\static\resources" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\YpsilonZett\Programming\Python\projects\qr-bon\qrbon_server\static\my-own" />
       <recent name="C:\Users\YpsilonZett\Programming\Python\projects\qr-bon\qrbon_server\static" />
       <recent name="C:\Users\YpsilonZett\Programming\Python\Projects\QR-Bon\qrbon_server\static\res" />
       <recent name="C:\Users\YpsilonZett\Programming\Python\Projects\QR-Bon" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\YpsilonZett\Programming\Python\projects\qr-bon\qrbon_server\static\my-own\fonts" />
+      <recent name="C:\Users\YpsilonZett\Programming\Python\Projects\QR-Bon\qr-bon\qrbon_server\static" />
+      <recent name="C:\Users\YpsilonZett\Programming\Python\Projects\QR-Bon\qrbon_server\static\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Python.server.wsgi">
@@ -607,9 +634,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2157738" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16592261" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.35128984" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -677,14 +704,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/qrbon_server/static/css/login.css" />
-    <entry file="file://$PROJECT_DIR$/qrbon_server/templates/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/qrbon_server/static/css/register.css" />
     <entry file="file://$PROJECT_DIR$/qrbon_server/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -698,7 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -727,7 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -749,7 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -778,8 +794,8 @@
             <element signature="e#1599#2560#0" expanded="false" />
             <element signature="e#2610#2932#0" expanded="false" />
             <element signature="e#2979#3190#0" expanded="false" />
-            <element signature="e#3225#3936#0" expanded="false" />
-            <element signature="e#3988#4526#0" expanded="false" />
+            <element signature="e#3225#3951#0" expanded="false" />
+            <element signature="e#4003#4541#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -788,13 +804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-867">
           <caret line="160" column="6" selection-start-line="160" selection-start-column="6" selection-end-line="160" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qrbon_raspi/_qr_maker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -840,17 +849,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="396">
             <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
         </state>
       </provider>
       <provider editor-type-id="MarkdownFxPreviewEditor">
@@ -861,14 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
           <caret line="276" column="8" selection-start-line="276" selection-start-column="8" selection-end-line="276" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qrbon_server/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -876,20 +877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="407" column="0" selection-start-line="407" selection-start-column="0" selection-end-line="407" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qrbon_server/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qrbon_server/templates/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -912,10 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
           <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding>
-            <element signature="e#334#990#0" expanded="false" />
-            <element signature="e#1790#2241#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -923,7 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -931,36 +913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qrbon_server/static/my-own/css/dashboard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
-          <folding>
-            <element signature="e#11#90#0" expanded="false" />
-            <element signature="e#97#131#0" expanded="false" />
-            <element signature="e#141#166#0" expanded="false" />
-            <element signature="e#177#201#0" expanded="false" />
-            <element signature="e#216#260#0" expanded="false" />
-            <element signature="e#279#389#0" expanded="false" />
-            <element signature="e#410#460#0" expanded="false" />
-            <element signature="e#695#763#0" expanded="false" />
-            <element signature="e#780#800#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qrbon_raspi/_receipt_creator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="37" column="54" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
-          <folding>
-            <element signature="e#107#358#0" expanded="false" />
-            <element signature="e#402#855#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -972,30 +924,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qrbon_server/templates/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#table#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#table#2;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#table#3;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#table#4;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1477658644806" expanded="false" signature="8546:8641" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/qrbon_server/logs/debug.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qrbon_server/_users.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="27" column="48" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
+          <folding>
+            <element signature="e#46#60#0" expanded="false" />
+            <element signature="e#320#374#0" expanded="false" />
+            <element signature="e#897#2262#0" expanded="false" />
+            <element signature="e#2319#2927#0" expanded="false" />
+            <element signature="e#2976#3372#0" expanded="false" />
+            <element signature="e#3420#4085#0" expanded="false" />
+            <element signature="e#4141#5009#0" expanded="false" />
+            <element signature="e#5061#5667#0" expanded="false" />
+            <marker date="1477659626622" expanded="true" signature="1373:1424" ph="SELECT * FRO... users" />
+            <marker date="1477659626622" expanded="true" signature="1754:1837" ph="INSERT INTO users... " />
+            <marker date="1477659626622" expanded="true" signature="2613:2671" ph="SELECT passw... users" />
+            <marker date="1477659626622" expanded="true" signature="3196:3250" ph="SELECT uid F... users" />
+            <marker date="1477659626622" expanded="true" signature="3711:3777" ph="INSERT INTO receipts... " />
+            <marker date="1477659626622" expanded="true" signature="4367:4424" ph="SELECT * FRO... receipts" />
+            <marker date="1477659626622" expanded="true" signature="4657:4715" ph="UPDATE recei... " />
+            <marker date="1477659626622" expanded="true" signature="5318:5386" ph="SELECT * FRO... receipts" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qrbon_server/_views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="91" column="1" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
+          <folding>
+            <element signature="e#223#334#0" expanded="false" />
+            <element signature="e#362#1574#0" expanded="false" />
+            <element signature="e#1599#2560#0" expanded="false" />
+            <element signature="e#2610#2932#0" expanded="false" />
+            <element signature="e#2979#3190#0" expanded="false" />
+            <element signature="e#3225#3951#0" expanded="false" />
+            <element signature="e#4003#4541#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qrbon_raspi/_receipt_creator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="37" column="54" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qrbon_raspi/_checkout_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/Python2.7/Lib/lib-tk/Tkinter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="1325" column="0" selection-start-line="1325" selection-start-column="0" selection-end-line="1325" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qrbon_raspi/_misc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="34" column="62" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
+          <folding>
+            <element signature="e#46#66#0" expanded="true" />
+            <element signature="e#1442#1796#0" expanded="false" />
+            <element signature="e#1828#1978#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qrbon_raspi/_qr_maker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="73" column="40" selection-start-line="73" selection-start-column="40" selection-end-line="73" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qrbon_server/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="20" column="96" selection-start-line="20" selection-start-column="96" selection-end-line="20" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qrbon_server/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qrbon_server/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -1003,59 +1040,46 @@
     <entry file="file://$PROJECT_DIR$/server.wsgi">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qrbon_server/_users.py">
+    <entry file="file://$PROJECT_DIR$/qrbon_server/templates/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+        <state relative-caret-position="1126">
+          <caret line="155" column="34" selection-start-line="155" selection-start-column="34" selection-end-line="155" selection-end-column="34" />
           <folding>
-            <element signature="e#46#60#0" expanded="true" />
-            <element signature="e#320#374#0" expanded="false" />
-            <element signature="e#412#840#0" expanded="false" />
-            <element signature="e#901#2266#0" expanded="false" />
-            <element signature="e#2323#2931#0" expanded="false" />
-            <element signature="e#2980#3376#0" expanded="false" />
-            <element signature="e#3424#4089#0" expanded="false" />
-            <element signature="e#4145#5013#0" expanded="false" />
-            <element signature="e#5065#5671#0" expanded="false" />
-            <marker date="1477658542121" expanded="true" signature="1377:1428" ph="SELECT * FRO... users" />
-            <marker date="1477658542121" expanded="true" signature="1758:1841" ph="INSERT INTO users... " />
-            <marker date="1477658542121" expanded="true" signature="2617:2675" ph="SELECT passw... users" />
-            <marker date="1477658542121" expanded="true" signature="3200:3254" ph="SELECT uid F... users" />
-            <marker date="1477658542121" expanded="true" signature="3715:3781" ph="INSERT INTO receipts... " />
-            <marker date="1477658542121" expanded="true" signature="4371:4428" ph="SELECT * FRO... receipts" />
-            <marker date="1477658542121" expanded="true" signature="4661:4719" ph="UPDATE recei... " />
-            <marker date="1477658542121" expanded="true" signature="5322:5390" ph="SELECT * FRO... receipts" />
+            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#table#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#table#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#table#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#table#4;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#p#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1477825295021" expanded="false" signature="1614:1707" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qrbon_server/_views.py">
+    <entry file="file://$PROJECT_DIR$/qrbon_server/static/my-own/css/dashboard.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        <state relative-caret-position="133">
+          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
           <folding>
-            <element signature="e#223#334#0" expanded="false" />
-            <element signature="e#362#1574#0" expanded="false" />
-            <element signature="e#1599#2560#0" expanded="false" />
-            <element signature="e#2610#2932#0" expanded="false" />
-            <element signature="e#2979#3190#0" expanded="false" />
-            <element signature="e#3225#3936#0" expanded="false" />
-            <element signature="e#3988#4526#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qrbon_raspi/_misc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
-          <folding>
-            <element signature="e#46#66#0" expanded="true" />
+            <element signature="e#11#90#0" expanded="false" />
+            <element signature="e#97#131#0" expanded="false" />
+            <element signature="e#150#262#0" expanded="false" />
+            <element signature="e#283#333#0" expanded="false" />
+            <element signature="e#343#368#0" expanded="false" />
+            <element signature="e#379#404#0" expanded="false" />
+            <element signature="e#419#464#0" expanded="false" />
+            <element signature="e#780#800#0" expanded="false" />
           </folding>
         </state>
       </provider>

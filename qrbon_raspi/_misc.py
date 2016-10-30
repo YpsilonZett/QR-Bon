@@ -4,8 +4,9 @@ import Tkinter as tk
 
 import requests
 
-from _receipt_creator import create_test_receipt
+from _checkout_api import CheckoutApi
 from _qr_maker import QrMaker
+from _receipt_creator import create_test_receipt
 
 
 class Misc:
@@ -14,9 +15,10 @@ class Misc:
     Puts graphics and logic together. Please create an instance to run it.
     """
 
-    def __init__(self, server_url='http://localhost:5000/receipt'):
+    def __init__(self, server_url='http://www.qr-bon.com/receipt'):
         """Runs class"""
         self.__SERVER_URL = server_url
+        self.__CHECKOUT = CheckoutApi()
         self.__WN = tk.Tk()
         self.__asking_screen()
 
@@ -25,13 +27,14 @@ class Misc:
         self.__WN.attributes('-fullscreen', True)
         self.__WN.configure(background="#FFEC8B")
 
-        tk.Label(master=self.__WN, text='Möchten Sie\neinen\ndigitalen\nKassenbon?', font='Verdana 37 bold',
-            fg='black', bg="#FFEC8B").pack()
+        tk.Label(master=self.__WN, text='Ich möchte:', font='Verdana 35 bold',
+                 fg='black', bg="#FFEC8B").pack()
+        tk.Button(master=self.__WN, text='     einen digitalen Kassenbon     ', font='Verdana 20 bold', fg='black',
+                  bg='orange', height=self.__WN.winfo_height() / 3, command=self.__next).pack()
+        tk.Button(master=self.__WN, text='einen ausgedruckten Kassenbon', font='Verdana 20 bold', fg='black',
+                  bg='orange', height=self.__WN.winfo_height() / 3, command=self.__CHECKOUT.paper_receipt).pack()
 
-        tk.Button(master=self.__WN, text='  JA!  ', font='Verdana 46 bold', fg='black',
-            bg='orange', command=self.__next).pack()
-
-        self.__WN.mainloop()  # TODO: Two buttons
+        self.__WN.mainloop()
 
     def __send_and_receive(self):
         """
@@ -48,8 +51,7 @@ class Misc:
         """Executes the programm and prepare for the next customer"""
         self.__WN.destroy()
         url = self.__send_and_receive()
-        print url
-        #QrMaker(url)
+        QrMaker(url)
 
 
 if __name__ == '__main__':

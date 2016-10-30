@@ -70,5 +70,5 @@ class QrMaker:
             place(x=self.__SCREEN_HEIGHT + 7, y=22)
 
         tk.Button(master=self.__WN, text='\n  Fertig  \n', font='Verdana 20 bold',
-            fg='black', bg='orange', bd=1, command=self.__WN.destroy).\
-            place(x=self.__SCREEN_HEIGHT + 4, y=self.__SCREEN_HEIGHT - 109)
+            fg='black', bg='orange', bd=1, command=self.__WN.destroy). \
+            place(x=self.__SCREEN_HEIGHT, y=self.__SCREEN_HEIGHT - 109)
