@@ -1,42 +1,35 @@
-<!DOCTYPE html>
-<html lang="de">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'base.html' %}
 
-        <title>{{ session['username'] }}</title>
+{% block title %}
+    {{ session['username'] }}
+{% endblock %}
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="../static/my-own/css/dashboard.css">
-        <!-- JS -->
-        <script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js"></script>
-    </head>
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='my-own/css/dashboard.css') }}">
+{% endblock %}
 
-
-    <body>
+{% block body %}
     <div class="container-fluid">
         <div class="row">
             <div id="inner-container" class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1
-                col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
                 <div class="row">
                     <div id="header" class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2
                         col-lg-8 col-lg-offset-2">
-                        <div align="center" id="heading">Hallo YpsilonZett</div>
-                        <div align="center" id="sub-heading">Hier sind alle ihre Bons:</div>
+                        <div align="center" id="heading">Hallo {{ session['username'] }}</div>
+
+                        {% set greeting = 'Hier sind alle ihre Bons:' %}
+                        {% if receipts == [] %}
+                            {% set greeting = 'Sie haben noch keine digitalen Ksssenbons    ' %}
+                        {% endif %}
+
+                        <div align="center" id="sub-heading">{{ greeting }}</div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div id="receipt-container" class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1
-                        col-lg-8 col-lg-offset-2">
-                        <!--{% if receipts == [] %}
-                            <div class="alert-info">
-                                Sie haben noch keine Bons
-                            </div>
-                        {% endif %}-->
+                        col-lg-10 col-lg-offset-1">
 
                         {% for receipt in receipts %}
                             <div class="receipt">
@@ -163,10 +156,19 @@
                                 </p>
                             </div>
                         {% endfor %}
+
+                        <script type="text/javascript">
+                            function logout() {
+                                window.location.href = "{{ url_for('logout_page') }}";
+                            }
+                        </script>
+
+                        <button id="logout-btn" onclick="logout()" class="btn btn-info">
+                            Abmelden
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </body>
-</html>
+{% endblock %}

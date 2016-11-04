@@ -7,7 +7,7 @@ The program is running in a while loop, so it will never stop, except you shutdo
 I don't recommend this, because the Raspberry Pi have to be handled with care. (Later on there will
 be a nice way to shutdown.
 """
-from ._misc import Misc
+from _misc import Misc
 
 
 __author__ = "Yorick Zeschke"

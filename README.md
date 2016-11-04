@@ -9,11 +9,4 @@ weitergeführte Projektes wird bald einer Supermarktkette vorgestellt, zum Jugen
 
 
 # Roadmap:
- - Text align center
- - Colour scheme 
- - Base template, all pages are child templates
- - Connect templates to server after successfully styled
- - Dashboard, Homepage, Error Page
- - Error Alert (login, register)
- - Dashboard @media font size 
- - REceipt is way to large
+  - @media for headings

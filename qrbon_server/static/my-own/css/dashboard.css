@@ -5,7 +5,7 @@
 
 body {
     background-color: #bced91;
-}
+}  /* Works only in some cases */
 
 #inner-container {
     background-color: #ffffff;
