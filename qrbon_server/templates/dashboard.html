@@ -16,20 +16,32 @@
                 <div class="row">
                     <div id="header" class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2
                         col-lg-8 col-lg-offset-2">
-                        <div align="center" id="heading">Hallo {{ session['username'] }}</div>
+                        <h1 align="center">Hallo {{ session['username'] }}</h1>
 
                         {% set greeting = 'Hier sind alle ihre Bons:' %}
                         {% if receipts == [] %}
-                            {% set greeting = 'Sie haben noch keine digitalen Ksssenbons    ' %}
+                            {% set greeting = 'Sie haben noch keine digitalen Kassenbons' %}
                         {% endif %}
 
-                        <div align="center" id="sub-heading">{{ greeting }}</div>
+                        <h2 align="center" style="color: #808080;">{{ greeting }}</h2>
                     </div>
                 </div>
 
                 <div class="row">
                     <div id="receipt-container" class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1
                         col-lg-10 col-lg-offset-1">
+
+                        <script type="text/javascript">
+                            function logout() {
+                                window.location.href = "{{ url_for('logout_page') }}";
+                            }
+                        </script>
+
+                        <div class="col-md-4 center-block">
+                            <button id="singlebutton" class="btn btn-lg btn-info center-block" onclick="logout()">
+                                Abmelden
+                            </button>
+                        </div>
 
                         {% for receipt in receipts %}
                             <div class="receipt">
@@ -156,16 +168,6 @@
                                 </p>
                             </div>
                         {% endfor %}
-
-                        <script type="text/javascript">
-                            function logout() {
-                                window.location.href = "{{ url_for('logout_page') }}";
-                            }
-                        </script>
-
-                        <button id="logout-btn" onclick="logout()" class="btn btn-info">
-                            Abmelden
-                        </button>
                     </div>
                 </div>
             </div>
