@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ session['username'] }}
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='my-own/css/dashboard.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div id="inner-container" class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1
+                col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+                <div class="row">
+                    <div id="header" class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2
+                        col-lg-8 col-lg-offset-2">
+                        <h1 align="center">Hallo {{ session['username'] }}</h1>
+
+                        {% set greeting = 'Hier sind alle ihre Bons:' %}
+                        {% if receipts == [] %}
+                            {% set greeting = 'Sie haben noch keine digitalen Kassenbons' %}
+                        {% endif %}
+
+                        <h2 align="center" style="color: #808080;">{{ greeting }}</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="receipt-container" class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1
+                        col-lg-10 col-lg-offset-1">
+
+                        <script type="text/javascript">
+                            function logout() {
+                                window.location.href = "{{ url_for('logout_page') }}";
+                            }
+                        </script>
+
+                        <div class="col-md-4 center-block">
+                            <button id="singlebutton" class="btn btn-lg btn-info center-block" onclick="logout()">
+                                Abmelden
+                            </button>
+                        </div>
+
+                        {% for receipt in receipts %}
+                            <div class="receipt">
+                                <div class="receipt-heading">
+                                    {{ receipt['store_header'] }}
+                                </div>
+
+                                <div class="receipt-seperator">
+                                    ------------------------------------------------------------------------------------------------------------
+                                </div>
+
+                                <table class="receipt-table">
+                                    <tr>
+                                        <td class="left text-left"></td>
+                                        <td class="right text-right">EUR</td>
+                                    </tr>
+
+                                    {% for item, item_info in receipt['items'].items() %}
+                                        <tr>
+                                            <td class="left text-left">{{ item }}</td>
+                                            <td class="right text-right">{{ item_info[0] }}</td>
+                                            {# TODO: Item kind #}
+                                        </tr>
+                                    {% endfor %}
+
+                                </table>
+
+                                <div class="receipt-seperator">
+                                    ------------------------------------------------------------------------------------------------------------
+                                </div>
+
+                                <table class="receipt-table">
+                                    <tr>
+                                        <td width="50%" class="text-left"><strong>SUMME</strong></td>
+                                        <td width="25%" class="text-right"><strong>EUR</strong></td>
+                                        <td width="25%" class="text-right"><strong>{{ receipt['sum'] }}</strong></td>
+                                    </tr>
+                                </table>
+
+                                <div class="receipt-seperator">
+                                    ------------------------------------------------------------------------------------------------------------
+                                </div>
+
+                                Sie erhalten {{ receipt['points'] }} Treuepunkt(e)
+
+                                <table class="receipt-table">
+                                    <tr>
+                                        <td width="50%" class="text-left">BAR</td>
+                                        <td width="25%" class="text-right">EUR</td>
+                                        <td width="25%" class="text-right">{{ receipt['money'][0] }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="50%" class="text-left">Rückgeld BAR</td>
+                                        <td width="25%" class="text-right">EUR</td>
+                                        <td width="25%" class="text-right">{{ receipt['money'][0] }}</td>
+                                    </tr>
+                                </table>
+
+                                <div class="receipt-seperator"></div>
+
+                                <table class="receipt-table">
+                                    <tr>
+                                        <td width="20%" class="text-left">Steuer</td>
+                                        <td width="10%" class="text-right">%</td>
+                                        <td width="20%" class="text-right">Netto</td>
+                                        <td width="25%" class="text-right">Steuer</td>
+                                        <td width="25%" class="text-right">Brutto</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="20%" class="text-left">A =</td>
+                                        <td width="10%" class="text-right">{{ receipt['tax_percentage']['a'] }}%</td>
+                                        <td width="20%" class="text-right">{{ receipt['netto']['a'] }}</td>
+                                        <td width="25%" class="text-right">{{ receipt['tax']['a'] }}</td>
+                                        <td width="25%" class="text-right">{{ receipt['brutto']['a'] }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="20%" class="text-left">B =</td>
+                                        <td width="10%" class="text-right">{{ receipt['tax_percentage']['b'] }}%</td>
+                                        <td width="20%" class="text-right">{{ receipt['netto']['b'] }}</td>
+                                        <td width="25%" class="text-right">{{ receipt['tax']['b'] }}</td>
+                                        <td width="25%" class="text-right">{{ receipt['brutto']['b'] }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th colspan="2">Gesamtbetrag</th>
+                                        <td width="10%"
+                                            class="text-right">{{ receipt['netto']['a'] + receipt['netto']['b'] }}</td>
+                                        <td width="25%"
+                                            class="text-right">{{ receipt['tax']['a'] + receipt['tax']['b'] }}</td>
+                                        <td width="25%"
+                                            class="text-right">{{ receipt['brutto']['a'] + receipt['brutto']['b'] }}</td>
+                                    </tr>
+                                </table>
+
+                                <div class="receipt-seperator">
+                                    ------------------------------------------------------------------------------------------------------------
+                                </div>
+
+                                Es bediente Sie {{ receipt['servant'] }}
+
+                                <table class="receipt-table">
+                                    <tr>
+                                        <td width="30%" class="left text-left">{{ receipt['datetime'][0] }}</td>
+                                        <td width="25%" class="left text-right">{{ receipt['datetime'][1] }}</td>
+                                        <td width="45%" class="right text-right">Bon
+                                            Nr.: {{ receipt['receipt_num'] }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="30%" class="left text-left">Markt: {{ receipt['store_num'] }}</td>
+                                        <td width="25%" class="left text-right">
+                                            Kasse: {{ receipt['checkout_num'] }}</td>
+                                        <td width="45%" class="right text-right">Bed: {{ receipt['bed'] }}</td>
+                                    </tr>
+                                </table>
+
+                                <div class="receipt-seperator"></div>
+
+                                <p>
+                                    {{ receipt['store_footer'] }}
+                                </p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

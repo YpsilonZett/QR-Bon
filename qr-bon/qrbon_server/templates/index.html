@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}Startseite{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='my-own/css/dashboard.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid" style="background-color: #bced91;">
+        <div class="row">
+            <div id="inner-container" class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1
+                col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+                <div class="row">
+                    <div id="header" class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2
+                        col-lg-8 col-lg-offset-2">
+                        <h1 align="center"><strong>QR-Bon</strong></h1>
+                        <h2 align="center" style="color: #808080;">Nie mehr Papierverbrauch durch Kassenbons</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="receipt-container" class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1
+                    col-lg-10 col-lg-offset-1">
+
+                        <script type="text/javascript">  <!-- Button action script -->
+                        function login() {
+                            window.location.href = "{{ url_for('login_page') }}";
+                        }
+
+                        function register() {
+                            window.location.href = "{{ url_for('register_page') }}";
+                        }
+                        </script>
+
+                        <div class="row">
+                            <div class="col-xs-6 text-right">
+                                <button onclick="login()" class="btn btn-lg btn-info">
+                                    Anmelden
+                                </button>
+                            </div>
+                            <div class="col-xs-6 text-left">
+                                <button onclick="register()" class="btn btn-lg btn-info">
+                                    Registrieren
+                                </button>
+                            </div>
+                        </div>
+                        <br>
+                        <h4 align="center">Was ist QR-Bon?</h4>
+                        <p align="center">
+                            QR-Bon ist ein <a href="http://www.jugend-forscht.de/">Jugend Forscht</a> Projekt zum Thema
+                            Nachhaltigkeit, dessen Zweck es ist, Papierverbrauch durch digitalisierung von Kassenbons
+                            zu reduzieren. Da Bons bei vielen Läden automatisch ausgedruckt werden, und von vielen
+                            Leuten sofort weggeworfen werden, werden täglich mehrere Rollen Kassenbonpapier verbraucht.
+                            Die dadurch entstandene Umweltbelastung und das Zettelchaos möchte QR-Bon revolutionieren.
+                        </p>
+                        <h4 align="center">Wie kann ich es benutzen?</h4>
+                        <p align="center">
+                            Bei <a href="#prototype">QR-Bon Partnern</a> finden Sie an der Kassen einen kleinen
+                            Computer mit Touchscreen, auch dem zwei Knöpfe angezeigt werden ("Digitaler Kassenbon"
+                            oder "Papier Kassenbon"). Nach drücken des "Digitaler Kassenbon" Knopfes wird ihnen
+                            ein <a href="https://de.wikipedia.org/wiki/QR-Code">QR Code</a> angezeigt, den sie mit einem
+                            (häufig) auf ihrem Handy bereits installierten <a href="base.html">QR Code Scanner</a>
+                            scannen können. Er enthält einen Link zu einer Webseite, auf der Sie sich anmelden müssen.
+                            <b>WICHTIG: Bitte erstellen Sie sich vor der Benutzung <a
+                                    href="{{ url_for('register_page') }}">hier</a>
+                                ein Konto.</b>
+                            Nach der Anmeldung haben Sie eine Übersicht über alle ihre Bons.
+                        </p>
+                        <h4 align="center">Weitere Informationen</h4>
+                        <p align="center">
+                            <span id="prototype"><strong>QR-Bon ist momentan noch ein Prototyp</strong></span>,
+                            deswegen werden Sie noch keine Läden finden, in denen QR-Bon benutz wird. Momentan wird die
+                            Idee und dieser Prototyp dem Kassenhersteller <a href="http://www.wincor-nixdorf.com/">Wincor
+                            Nixdorf</a>
+                            vorgeschlagen und gegebenenfalls mit dessen Kassen vernetzt. Später soll QR-Bon in jedem
+                            REWE
+                            Supermarkt zu finden sein. QR-Bon soll zuerst für Lebensmittelmärkte verwendet werden,
+                            da in diesen die meisten Kassenbons anfallen.
+                        </p>
+                        <h4 align="center">Kontakt / Impressum</h4>
+                        <p align="center">
+                            QR-Bon wurde von Yorick Zeschke erfunden und umgesetzt<br>
+                            Erreichen können Sie mich unter <i>yzeschke@gmail.com</i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
